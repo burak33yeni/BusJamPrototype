@@ -46,6 +46,7 @@ namespace _Game._Scripts._GameScene
         {
             levelSaveObject = null;
             int levelItem = _levelInventory.Get<LevelItem>();
+            
             if (lookAtLastPlayed)
                 if (_levelInventory.Get<LastPlayedLevelItem>() >= levelItem) 
                     return false;
@@ -78,7 +79,8 @@ namespace _Game._Scripts._GameScene
                     unfinishedLevelSaveObject.HumansIndexesInBusStop.Count <= 0 ||
                     unfinishedLevelSaveObject.CellsIndexes.Count <= 0 ||
                     unfinishedLevelSaveObject.BusesIndexes.Count + 
-                    unfinishedLevelSaveObject.CreatedBusesIndexes.Count <= 0)
+                    unfinishedLevelSaveObject.CreatedBusesIndexes.Count <= 0 ||
+                    unfinishedLevelSaveObject.Level < 0)
                 {
                     EliminateDeadlock();
                     return false;
